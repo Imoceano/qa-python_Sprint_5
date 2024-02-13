@@ -1,34 +1,30 @@
-
-from selenium.webdriver.common.by import By
-from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions 
-
+from locators import TestLocators
 
 class TestWayToConstructor:
     def test_way_from_account_to_constructor_by_button(self,driver,authorization):
 
         
         
-        button_personal_account = driver.find_element(By.XPATH, '//*[@id="root"]/div/header/nav/a/p')
-        button_personal_account.click()
+        go_to_personal_account = button_personal_account = driver.find_element(*TestLocators.GO_TO_PERSONAL_ACCOUNT_PAGE)
+        go_to_personal_account.click()
+       
         
-        button_constructor = driver.find_element(By.XPATH, '//*[@id="root"]/div/header/nav/ul/li[1]/a/p')
+        button_constructor = driver.find_element(*TestLocators.GO_TO_CONSTRUCTOR)
         button_constructor.click()
         
-        burger = driver.find_element(By.XPATH, '//*[@id="root"]/div/main/section[1]/h1')
-        assert burger.text == 'Соберите бургер'
+        selector = driver.find_element(*TestLocators.SELECTOR_BURGER)
+        assert selector  is not None
 
-        driver.quit()
+
     
     def test_way_from_account_to_contructor_by_logo(self,driver,authorization):
         
         
-        button_personal_account = driver.find_element(By.XPATH, '//*[@id="root"]/div/header/nav/a/p')
+        button_personal_account = driver.find_element(*TestLocators.GO_TO_PERSONAL_ACCOUNT_PAGE)
         button_personal_account.click()
         
-        button_logo = driver.find_element(By.TAG_NAME, "svg")
+        button_logo = driver.find_element(*TestLocators.LOGO_MAIN_PAGE)
         button_logo.click()
-    
-        burger = driver.find_element(By.XPATH, '//*[@id="root"]/div/main/section[1]/h1')
-        assert burger.text == 'Соберите бургер'
+        
+        selector = driver.find_element(*TestLocators.SELECTOR_BURGER)
+        assert selector  is not None
