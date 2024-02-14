@@ -21,7 +21,7 @@ class TestRegistration:
         password_input.send_keys('qwerty')
 
         email_input = driver.find_element(*TestLocators.INPUT_EMAIL_REGISTRATION)
-        email_input.send_keys('konstantin_golovin_5_802@gmail.com')
+        email_input.send_keys('konstantin_golovin_5_355@gmail.com')
 
         
 

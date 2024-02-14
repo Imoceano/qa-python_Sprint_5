@@ -4,8 +4,11 @@ from locators import TestLocators
 
 
 
+
 class TestAuthorization:
     def test_go_to_authorization_from_main_page(self,driver):
+
+        
 
         authorization_page_button = driver.find_element(*TestLocators.GO_TO_AUTHORIZATION_PAGE_FROM_MAIN)
         authorization_page_button.click()
