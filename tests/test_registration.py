@@ -1,10 +1,12 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions 
+from generators.generate_email import GeneratorEmail
+from generators.generate_password import GeneratorPassword
+from generators.generate_name import GeneratorName
 from locators import TestLocators
-
-
-class TestRegistration:
-    def test_register_sucsessfull(self,driver):
+from data import TestData
+class TestRegistrationWithGenerate:
+    def test_register_sucsessfull_with_generate(self,driver):
         
 
         account_page_button = driver.find_element(*TestLocators.GO_TO_AUTHORIZATION_PAGE_FROM_MAIN)
@@ -15,15 +17,16 @@ class TestRegistration:
       
 
         name_input = driver.find_element(*TestLocators.INPUT_NAME_REGISTRATION)
-        name_input.send_keys('Константин')
-
-        password_input = driver.find_element(*TestLocators.INPUT_PASSWORD_REGISTRATION)
-        password_input.send_keys('qwerty')
+        random_name = GeneratorName.random_name()
+        name_input.send_keys(random_name)
 
         email_input = driver.find_element(*TestLocators.INPUT_EMAIL_REGISTRATION)
-        email_input.send_keys('konstantin_golovin_5_388@gmail.com')
+        random_email = GeneratorEmail.random_email()
+        email_input.send_keys(random_email)
 
-        
+        password_input = driver.find_element(*TestLocators.INPUT_PASSWORD_REGISTRATION)
+        random_password = GeneratorPassword.random_password()
+        password_input.send_keys(random_password)
 
         submit_button_registration = driver.find_element(*TestLocators.SUBMIT_BUTTON_REGISTRATION)
         submit_button_registration.click()
@@ -36,6 +39,11 @@ class TestRegistration:
         
         authorization_page = driver.find_element(*TestLocators.ENTER_TEXT)
         assert authorization_page.text == 'Вход'
+       
+        
+    
+
+    
 
        
 
@@ -52,13 +60,17 @@ class TestRegistration:
         go_to_registration_button.click()
 
         name_input = driver.find_element(*TestLocators.INPUT_NAME_REGISTRATION)
-        name_input.send_keys('Константин')
-        
-        password_input = driver.find_element(*TestLocators.INPUT_PASSWORD_REGISTRATION)
-        password_input.send_keys('qwert')
+        random_name = GeneratorName.random_name()
+        name_input.send_keys(random_name)
 
         email_input = driver.find_element(*TestLocators.INPUT_EMAIL_REGISTRATION)
-        email_input.send_keys('konstantin_golovin_5_991@gmail.com')
+        random_email = GeneratorEmail.random_email()
+        email_input.send_keys(random_email)
+        
+        password_input = driver.find_element(*TestLocators.INPUT_PASSWORD_REGISTRATION)
+        password_input.send_keys(TestData.incorrect_password)
+
+        
 
         
 
