@@ -21,7 +21,7 @@ class TestRegistration:
         password_input.send_keys('qwerty')
 
         email_input = driver.find_element(*TestLocators.INPUT_EMAIL_REGISTRATION)
-        email_input.send_keys('konstantin_golovin_5_355@gmail.com')
+        email_input.send_keys('konstantin_golovin_5_388@gmail.com')
 
         
 
@@ -70,6 +70,6 @@ class TestRegistration:
         incorrect_password_text = driver.find_element(*TestLocators.INCORRECT_PASSWORD_TEXT)
 
         
-        assert incorrect_password_text.text == "Некорректный пароль","Пароль нормас"
+        assert incorrect_password_text.text == "Некорректный пароль"
     
 
