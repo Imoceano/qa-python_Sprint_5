@@ -36,3 +36,6 @@ class TestLocators:
     SELECTOR_BURGER = By.XPATH, ".//div[@style = 'display: flex;']" #Селектор ингрдиентов
     LOGO_MAIN_PAGE = By.CLASS_NAME, 'AppHeader_header__logo__2D0X2' # Лого в хэдере
     ENTER_TEXT = By.XPATH, ".//h2[text() = 'Вход']" # Надпись вход на странице авторизации
+    CARD_OF_SAUCE = By.XPATH, './/a[@href = "/ingredient/61c0c5a71d1f82001bdaaa72"]' #Карточка с соусом Spicy-X
+    CARD_OF_BUN = By.XPATH, './/a[@href = "/ingredient/61c0c5a71d1f82001bdaaa6d"]'#Карточка с булкой R2-D3
+    CARD_OF_TOPPINGS = By.XPATH, './/a[@href = "/ingredient/61c0c5a71d1f82001bdaaa76"]'#Карточка с начинкой Хрустящие Минеральные Кольца

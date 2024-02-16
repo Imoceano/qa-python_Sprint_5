@@ -5,6 +5,5 @@ class GeneratorName:
         name = random.choice(['Nick','Andrew', 'Bob', 'Joe', 'Peter'])
         return name
         
-generate = GeneratorName()
-generate.random_name()
+
 

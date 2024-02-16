@@ -5,6 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.chrome.service import Service
 from locators import TestLocators
+from data import TestData
 
 
 
@@ -25,10 +26,10 @@ def authorization(driver):
     go_to_authorization_page.click()
 
     input_email = driver.find_element(*TestLocators.INPUT_EMAIL_AUTHORIZATION)
-    input_email.send_keys('konstantin_golovin_5_000@gmail.com')
+    input_email.send_keys(TestData.email)
 
     input_password = driver.find_element(*TestLocators.INPUT_PASSWORD_AUTHORIZATION)
-    input_password.send_keys('qwerty1')
+    input_password.send_keys(TestData.password)
 
     authorization_button = driver.find_element(*TestLocators.SUBMIT_BUTTON_AUTHORIZATION)
     authorization_button.click()
